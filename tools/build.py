@@ -121,13 +121,12 @@ def build_llms_txt(cfg: dict, body: str, date_text: str, canonical: str) -> str:
         f"- Обновлено: {date_text}\n"
         f"- Аудитория: {cfg.get('audience') or 'не указана'}\n"
         f"- Язык: {cfg.get('lang', 'ru')}\n\n"
-        f"## Файлы\n\n"
+        f"{body}"
+        f"\n## Где ещё лежит этот документ\n\n"
         f"- [Полные инструкции, чистый текст]({base}/llms.txt): этот документ\n"
         f"- [Полные инструкции, Markdown]({base}/raw.md): то же содержимое в Markdown\n"
         f"- [Страница для человека]({base}/): то же содержимое в HTML\n"
-        f"- [Исходный репозиторий]({repo_url}): правки, история версий\n\n"
-        f"## Инструкции\n\n"
-        f"{body}"
+        f"- [Исходный репозиторий]({repo_url}): правки, история версий\n"
     )
 
 
