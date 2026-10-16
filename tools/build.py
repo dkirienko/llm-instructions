@@ -168,7 +168,7 @@ def outputs(cfg: dict, body: str) -> dict[str, str]:
     date_iso, date_text = resolve_date(cfg)
     canonical = resolve_canonical(cfg)
     body_html = render_markdown(body)
-    summary_html = f"<p><strong>{html.escape(cfg['summary'])}</strong></p>\n"
+    summary_html = f'<p class="lead">{html.escape(cfg["summary"])}</p>\n'
 
     return {
         "index.html": build_html(cfg, body_html, summary_html, date_iso, date_text, canonical),
