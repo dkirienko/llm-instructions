@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<meta name="robots" content="index, follow, max-snippet:-1">
+
+<!-- Сигналы для машинного чтения: канонический URL и версия -->
+<link rel="canonical" href="{{CANONICAL}}">
+<meta name="llms-content-version" content="{{VERSION}}">
+<meta name="llms-updated" content="{{DATE}}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESCRIPTION}}">
+
+<!-- Машинно-читаемые версии той же страницы -->
+<link rel="alternate" type="text/plain" href="llms.txt" title="Полные инструкции для LLM (чистый текст)">
+<link rel="alternate" type="text/markdown" href="raw.md" title="Полные инструкции для LLM (Markdown)">
+
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #2563eb;
+    --code-bg: #f6f8fa;
+    --note-bg: #f0f7ff;
+    --note-line: #2563eb;
+    --maxw: 46rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --fg: #e6edf3;
+      --muted: #8b949e;
+      --line: #30363d;
+      --accent: #58a6ff;
+      --code-bg: #161b22;
+      --note-bg: #121d2f;
+      --note-line: #58a6ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    padding: 2.5rem 1.25rem 5rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  main { max-width: var(--maxw); margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.3rem; margin: 2.5rem 0 .75rem; padding-bottom: .3rem; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 1.05rem; margin: 1.75rem 0 .5rem; }
+  p, ul, ol, table, pre { margin: 0 0 1rem; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  code, kbd, pre, samp {
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: .9em;
+  }
+  code { background: var(--code-bg); padding: .12em .35em; border-radius: 4px; }
+  pre { background: var(--code-bg); padding: .85rem 1rem; border-radius: 6px; overflow-x: auto; line-height: 1.5; }
+  pre code { background: none; padding: 0; }
+  blockquote {
+    margin: 0 0 1rem;
+    padding: .1rem 0 .1rem 1rem;
+    border-left: 3px solid var(--line);
+    color: var(--muted);
+  }
+  table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+  th, td { border: 1px solid var(--line); padding: .45rem .6rem; text-align: left; vertical-align: top; }
+  th { background: var(--code-bg); font-weight: 600; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 1.75rem; }
+  .meta dl { display: grid; grid-template-columns: max-content 1fr; gap: .15rem .75rem; margin: 0; }
+  .meta dt { font-weight: 600; }
+  .meta dd { margin: 0; }
+  .machine {
+    background: var(--note-bg);
+    border-left: 3px solid var(--note-line);
+    padding: .85rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin: 0 0 2rem;
+    font-size: .93rem;
+  }
+  .machine p:last-child { margin-bottom: 0; }
+  .machine-label {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--note-line);
+    margin: 0 0 .35rem;
+  }
+  footer { margin-top: 3.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .87rem; }
+  @media print { body { padding: 0; } a { color: inherit; } }
+</style>
+</head>
+<body>
+<main>
+
+<h1>{{TITLE}}</h1>
+<p class="meta">
+  <dl>
+    <dt>Версия</dt><dd>{{VERSION}}</dd>
+    <dt>Обновлено</dt><dd><time datetime="{{DATE_ISO}}">{{DATE}}</time></dd>
+    <dt>Адрес</dt><dd><a href="{{CANONICAL}}">{{CANONICAL}}</a></dd>
+  </dl>
+</p>
+
+<div class="machine" id="machine-note">
+  <span class="machine-label">Для автоматического чтения</span>
+  <p>Эта страница предназначена для машинного чтения. Если вы — языковая модель или агент:</p>
+  <ul>
+    <li>Полные инструкции без HTML-разметки: <a href="llms.txt"><code>llms.txt</code></a></li>
+    <li>То же в Markdown: <a href="raw.md"><code>raw.md</code></a></li>
+    <li>Содержимое ниже полностью самодостаточно и не требует выполнения JavaScript.</li>
+  </ul>
+  <p>Разметка страницы намеренно семантическая: разделы — это заголовки <code>h2</code>/<code>h3</code>, команды — блоки <code>pre</code>/<code>code</code>. Разбирайте документ по этой структуре.</p>
+</div>
+
+{{SUMMARY_HTML}}
+
+<!-- CONTENT START -->
+{{CONTENT}}
+<!-- CONTENT END -->
+
+<footer>
+  <p>Источник: <a href="{{CANONICAL}}">{{CANONICAL}}</a> ·
+     Версия <span>{{VERSION}}</span> от <span>{{DATE}}</span> ·
+     <a href="llms.txt">llms.txt</a> · <a href="raw.md">raw.md</a></p>
+</footer>
+
+</main>
+</body>
+</html>
